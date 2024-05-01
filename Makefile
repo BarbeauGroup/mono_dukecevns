@@ -110,7 +110,7 @@ sns_rates.o:
 
 mono_rates: mono_rates.o $(libdiffspec) 
 	$(RM) $@
-	$(CXX) -o $@ $(CXXFLAGS) get_flavor_weight.o -L. $^ $(ROOTLIBS)
+	$(CXX) -o $@ $(CXXFLAGS) -L. $^ $(ROOTLIBS)
 
 .PHONY: mono_rates.o
 mono_rates.o: 
