@@ -202,7 +202,6 @@ int main(int argc, char *argv[])
     double pvrfact = j["formfactor"]["pvrfact"];
     double parfact = j["formfactor"]["parfact"];
 
-    std::cout<<"bye"<<std::endl;
 
     if (ffname == "helm")
     {
@@ -362,9 +361,10 @@ int main(int argc, char *argv[])
 
   // Use the mass of the lightest component
   double erecmaxall = 2 * kmax * kmax / (minM + 2 * kmax);
+  std::cout << "erecmaxall " << erecmaxall << std::endl;
 
   // double recoilthresh = 0.013; //MeVr
-  double erecstart = recoilthresh;
+  double erecstart = 0; // recoilthresh;
   double erecend = recoilupperthresh > recoilthresh ? std::min(erecmaxall, recoilupperthresh) : erecmaxall;
 
   // double erecstep = 0.0001;
@@ -543,15 +543,6 @@ int main(int argc, char *argv[])
           ffpaval = 1.;
         }
 
-        //  double ff2 = pow(ff[is]->FFval(qq),2);
-        //  std::cout << "\tknumin, Erec, Q, ff2 "<<knumin<<" "<<Erec<<" "<<Q<<" "<<ff2<<" "<<M<<" "<<mass_fraction[is]<<std::endl;
-        //  std::cout << "\tknumin, Erec, Q "<<knumin<<" "<<Erec<<" "<<Q<<" "<<" "<<M<<" "<<mass_fraction[is]<<std::endl;
-
-        // SM Couplings
-
-        //	 double GV_sm = GV_SM(2015,Z,Nn);
-        // double GA_sm = GA_SM(2015,1,Z,Nn,Zdiff,Ndiff);
-        // double GA_sm_bar = GA_SM(2015,-1,Z,Nn,Zdiff,Ndiff);
 
         double gv[2], ga[2], gabar[2];
         int pdgyr = j["couplings"]["pdgyear"];
@@ -760,12 +751,12 @@ int main(int argc, char *argv[])
           drate_tau_interf += diffxscninterf(knu, M, Erec);
           drate_taubar_interf += diffxscninterf(knu, M, Erec) ;
 
-          drate_e_mag += diffxscnmag(knu, Erec);
-          drate_ebar_mag += diffxscnmag(knu, Erec) ;
-          drate_mu_mag += diffxscnmag(knu, Erec);
-          drate_mubar_mag += diffxscnmag(knu, Erec) ;
-          drate_tau_mag += diffxscnmag(knu, Erec);
-          drate_taubar_mag += diffxscnmag(knu, Erec) ;
+          drate_e_mag += 0; // diffxscnmag(knu, Erec);
+          drate_ebar_mag += 0; // diffxscnmag(knu, Erec) ;
+          drate_mu_mag += 0; // diffxscnmag(knu, Erec);
+          drate_mubar_mag += 0; // diffxscnmag(knu, Erec) ;
+          drate_tau_mag += 0; // diffxscnmag(knu, Erec);
+          drate_taubar_mag += 0; // diffxscnmag(knu, Erec) ;
 
         }
 
@@ -1017,6 +1008,7 @@ int main(int argc, char *argv[])
     allisooutfile << Er[ie] << "  " << dNdErall[ie] << endl;
   }
   allisooutfile.close();
+
 
   // Total flux-averaged xscn
 
