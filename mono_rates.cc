@@ -412,7 +412,7 @@ int main(int argc, char *argv[])
 
   int iq = 0;
   // Loop over recoil energy
-  for (Erec = erecstart + erecstep; Erec <= erecend; Erec += erecstep)
+  for (Erec = erecstart; Erec <= erecend; Erec += erecstep)
   {
 
     Er[iq] = Erec;
