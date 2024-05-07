@@ -3,7 +3,6 @@
 *.out
 *.o
 *.a
-jsonfiles
 sns_rates
 get_flavor_weight.cc
 qf/*
