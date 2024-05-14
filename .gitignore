@@ -8,3 +8,5 @@ get_flavor_weight.cc
 qf/*
 eff/*
 gs/*
+mono_rates
+.vscode/
